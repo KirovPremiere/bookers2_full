@@ -12,6 +12,24 @@
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, class: "email" %>
         </div>
+        
+        <div class="field">
+          <%= f.label :郵便番号 %><br />
+          <%= f.text_field :postal_code, autocomplete: "postal_code", id: "user_postal_code" %>
+        </div>
+        <div class="field">
+          <%= f.label :都道府県 %><br />
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all,  :name, :name, autocomplete: "prefecture_code", id: "user_prefecture_code" %>
+        </div>
+        <div class="field">
+          <%= f.label :市区町村 %><br />
+          <%= f.text_field :address_city,  autocomplete: "address_city", id: "user_address_city" %>
+        </div>
+        <div class="field">
+          <%= f.label :町名番地 %><br />
+          <%= f.text_field :address_street,  autocomplete: "address_street", id: "user_address_street" %>
+        </div>
+        
         <div class="field">
           <%= f.label :password %>
           <% if @minimum_password_length %>
